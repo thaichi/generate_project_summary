@@ -32,7 +32,7 @@ if !errorlevel! neq 0 (
 :: generate_project_summary.batファイルを作成
 echo @echo off > "%SCRIPT_DIR%\generate_project_summary.bat"
 echo set PYTHONPATH=%%PYTHONPATH%%;%SCRIPT_DIR% >> "%SCRIPT_DIR%\generate_project_summary.bat"
-echo python "%SCRIPT_DIR%\generate_project_summary\main.py" %%* >> "%SCRIPT_DIR%\generate_project_summary.bat"
+echo python "%SCRIPT_DIR%\src\main.py" %%* >> "%SCRIPT_DIR%\generate_project_summary.bat"
 
 echo Setup complete. You can now use 'generate_project_summary' command from any directory.
 echo Please restart your command prompt or open a new one for the changes to take effect.
