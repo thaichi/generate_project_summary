@@ -110,11 +110,23 @@ def run_gui_file_selector(project_dir):
         root.quit()
         root.destroy()
 
-    ok_button = ttk.Button(root, text="OK", command=on_ok)
-    ok_button.pack(pady=10)
+    def on_cancel():
+        nonlocal excluded_items
+        excluded_items = None
+        root.quit()
+        root.destroy()
+
+    button_frame = ttk.Frame(root)
+    button_frame.pack(pady=10)
+
+    ok_button = ttk.Button(button_frame, text="OK", command=on_ok)
+    ok_button.pack(side='left', padx=5)
+
+    cancel_button = ttk.Button(button_frame, text="キャンセル", command=on_cancel)
+    cancel_button.pack(side='left', padx=5)
 
     excluded_items = None
-    root.protocol("WM_DELETE_WINDOW", root.quit)  # ×ボタンでウィンドウを閉じたときの処理
+    root.protocol("WM_DELETE_WINDOW", on_cancel)  # ×ボタンでウィンドウを閉じたときの処理
     root.mainloop()
     
     if excluded_items is None:

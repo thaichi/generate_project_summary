@@ -43,5 +43,5 @@ def generate_project_summary(project_dir):
 
     traverse_directory(project_dir, 0)
 
-    with open(f'{project_name}_project_summary.txt', 'w', encoding='utf-8') as file:
+    with open(f'{project_name}_project_summary.md', 'w', encoding='utf-8') as file:
         file.write(summary + file_contents_section)
