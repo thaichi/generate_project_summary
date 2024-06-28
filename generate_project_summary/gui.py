@@ -1,7 +1,7 @@
 import os
 import tkinter as tk
 from tkinter import ttk
-from ignore_patterns import read_gitignore, is_ignored  # 追加
+from ignore_patterns import read_gitignore, is_ignored
 
 def run_gui_file_selector(project_dir):
     root = tk.Tk()
@@ -16,10 +16,14 @@ def run_gui_file_selector(project_dir):
     y = (screen_height // 2) - (window_height // 2)
     root.geometry(f'{window_width}x{window_height}+{x}+{y}')
 
+    # 説明ラベルの追加
+    label = ttk.Label(root, text="除外したいファイルやフォルダを選択してください。\n選択したアイテムはサマリーに含まれません。", wraplength=380)
+    label.pack(pady=10)
+
     # Treeviewの設定
     style = ttk.Style()
     style.layout("Treeview", [('Treeview.treearea', {'sticky': 'nswe'})])
-    style.configure("Treeview", highlightthickness=0, bd=0, font=('Calibri', 11))
+    style.configure("Treeview", highlightthickness=0, bd=0, font=('Calibri', 12))
     style.configure("Treeview.Item", indicatorsize=0)
     style.map("Treeview", background=[('selected', 'white')], foreground=[('selected', 'black')])
 
@@ -109,6 +113,13 @@ def run_gui_file_selector(project_dir):
     ok_button = ttk.Button(root, text="OK", command=on_ok)
     ok_button.pack(pady=10)
 
-    excluded_items = []
+    excluded_items = None
+    root.protocol("WM_DELETE_WINDOW", root.quit)  # ×ボタンでウィンドウを閉じたときの処理
     root.mainloop()
+    
+    if excluded_items is None:
+        print("ユーザーがキャンセルしました。プログラムを終了します。")
+        import sys
+        sys.exit(0)
+    
     return excluded_items
