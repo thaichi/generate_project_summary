@@ -31,7 +31,7 @@ LICENSE                     # ライセンスファイル
 ## 必要条件
 
 - Windows 10 または 11
-- Python 3.6以上
+- Pythonの組み込みの`os`と`fnmatch`と`tkinter`モジュールを使用します。
 
 ## インストール手順
 
