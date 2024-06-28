@@ -37,7 +37,7 @@ LICENSE                     # ライセンスファイル
 
 1. このリポジトリを任意のディレクトリにクローンまたはダウンロードしてください。
    ```
-   git clone https://github.com/yourusername/generate_project_summary.git [インストール先ディレクトリ]
+   git clone https://github.com/thaichi/generate_project_summary.git
    ```
    または、ZIPファイルをダウンロードして任意のディレクトリに展開してください。
 
