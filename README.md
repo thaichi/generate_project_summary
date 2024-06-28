@@ -23,7 +23,6 @@ src\
 ├── ignore_patterns.py      # 除外パターン処理
 └── gui.py                  # ファイル選択GUI
 setup.bat                   # セットアップスクリプト
-uninstall.bat               # アンインストールスクリプト
 README.md                   # 本ドキュメント
 LICENSE                     # ライセンスファイル
 ```
